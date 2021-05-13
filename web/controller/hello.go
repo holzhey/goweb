@@ -3,7 +3,7 @@ package controller
 import (
 	"net/http"
 
-	"github.com/holzhey/goweb/response"
+	"github.com/holzhey/goweb/web/response"
 )
 
 func HandleHello(w http.ResponseWriter, r *http.Request) {
