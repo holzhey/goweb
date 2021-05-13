@@ -12,14 +12,13 @@ type route struct {
 
 var routes []route
 
-func AddRoute(pattern string, handler func(http.ResponseWriter, *http.Request)) error {
+func AddRoute(pattern string, handler func(http.ResponseWriter, *http.Request)) {
 	for _, route := range routes {
 		if route.pattern == pattern {
-			return fmt.Errorf("pattern %s already added as a route", pattern)
+			panic(fmt.Sprintf("pattern %s already added", pattern))
 		}
 	}
 	routes = append(routes, route{pattern, handler})
-	return nil
 }
 
 func ListenAndServe(port string) error {
